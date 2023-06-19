@@ -1,0 +1,13 @@
+var removeDuplicates = function(nums) {
+  var uniqueArray = nums.filter((value, index) => {
+    return value !== nums[index + 1];
+  });
+  return uniqueArray;
+};
+
+var array = [1, 2, 2, 3, 3, 4, 5, 5, 6];
+var result = removeDuplicates(array);
+console.log(result); // Output: [1, 2, 3, 4, 5, 6]
+
+
+// this solution work in wditor not in leetcode/gfg
