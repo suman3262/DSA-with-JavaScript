@@ -1,0 +1,32 @@
+//Q- https://leetcode.com/problems/rotate-array/description/
+//this solution working but not acceptable for those scenarion where solution comes with inplace
+// you can't use extra memory 
+var rotate = function(nums, k) {
+    
+ if(nums.length !==k){
+
+       for(let i=0 ;i<k ;i++)
+        {
+           let lastElement=nums.pop();
+           nums=[lastElement].concat(nums);
+       }
+   }
+console.log(nums)
+};
+// in-place solution T.C O(n) S.C(1)
+var rotate = function(nums, k) {
+  const reverseArray = (start, end) => {
+    while (start < end) {
+      const temp = nums[start];
+      nums[start] = nums[end];
+      nums[end] = temp;
+      start++;
+      end--;
+    }
+  };
+
+  k %= nums.length; // Adjust k if it is greater than the array length
+  reverseArray(0, nums.length - 1); // Reverse the entire array
+  reverseArray(0, k - 1); // Reverse the first k elements
+  reverseArray(k, nums.length - 1); // Reverse the remaining elements after k
+};
