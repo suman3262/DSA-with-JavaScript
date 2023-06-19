@@ -1,0 +1,25 @@
+// Question link ->https://shorturl.at/bjXYZ
+
+// T.C O(n) S.C(1)
+class Solution {
+    leftRotate(arr,k,n){
+       //code here
+      const reverseArray=(start,end)=>{
+          while(start<end)
+          {
+              let temp=arr[start];
+              arr[start]=arr[end];
+              arr[end]=temp;
+              start++;
+              end--;
+          }
+      }
+      
+      k%=n;
+      
+      reverseArray(0,n-1); // reverse the entire array;
+      let start=(n-1)-k;
+      reverseArray(start+1,n-1)  //reverse the k-places
+      reverseArray(0,start) // reverse the remaining array
+    }
+}
